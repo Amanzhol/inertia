@@ -14,12 +14,35 @@ use Inertia\Inertia;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/test', function () {
+
+    function greet(string $greeting, string $name): void
+    {
+        echo $greeting . ', ' . $name . PHP_EOL;
+    }
+    $params = ['Hello', 'world',' With all my heart'];
+    greet(...$params);
+// Hello, world
+
+
+});
 
 Route::get('/', function () {
-    return Inertia::render('Index', [
-        'message' => 'Visitor'
-    ]);
+    sleep(1);
+    return Inertia::render('Home');
 })->name('home');
+
+Route::get('/users', function () {
+    return Inertia::render('Users',[
+        'time' => now()->toTimeString()
+    ]);
+})->name('users');
+
+Route::get('/settings', function () {
+    return Inertia::render('Settings');
+})->name('settings');
+
+Route::post('/logout', function () {
+    dd(request('foo'));
+    return Inertia::render('Settings');
+});
