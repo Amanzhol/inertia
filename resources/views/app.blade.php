@@ -10,8 +10,6 @@
     @inertiaHead
 </head>
 <body>
-<div class="container mx-20 pt-10">
 @inertia
-</div>
 </body>
 </html>

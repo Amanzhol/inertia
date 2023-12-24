@@ -28,7 +28,6 @@ Route::get('/test', function () {
 });
 
 Route::get('/', function () {
-    sleep(1);
     return Inertia::render('Home');
 })->name('home');
 

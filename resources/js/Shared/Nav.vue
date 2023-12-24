@@ -8,8 +8,8 @@ defineProps({
 </script>
 
 <template>
-    <nav>
-        <ul class="list-disc">
+    <nav class="ml-6">
+        <ul class="list-disc flex space-x-4 list-inside">
             <li>
                 <NavLink href="/" :active="$page.component==='Home'">Home</NavLink>
             </li>

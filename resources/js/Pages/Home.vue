@@ -10,8 +10,7 @@ defineProps({
 <template>
     <Layout>
 
-        <p>Home</p>
+        <h1>Home</h1>
+
     </Layout>
-
-
 </template>
