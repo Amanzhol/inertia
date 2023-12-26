@@ -2,16 +2,14 @@
 //
 import Layout from "@/Shared/Layout.vue";
 
-defineProps({
-    components: Layout
+defineOptions({
+    layout:Layout
 })
 </script>
 
 <template>
-    <Layout>
 
-        <p>Users</p>
-    </Layout>
+    <p>Users</p>
 
 
 </template>
