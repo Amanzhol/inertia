@@ -4,14 +4,20 @@ import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 
 import NProgress from 'nprogress'
 import { router } from '@inertiajs/vue3'
+import Layout from "@/Shared/Layout.vue";
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
-    resolve: (name) =>
-        resolvePageComponent(
-            `./Pages/${name}.vue`,
-            import.meta.glob("./Pages/**/*.vue")
-        ),
+        resolve: async (name) => {
+            const page = await resolvePageComponent(
+                `./Pages/${name}.vue`,
+                     import.meta.glob("./Pages/**/*.vue")
+            )
+
+            page.default.layout = page.default.layout || Layout
+
+            return page
+        },
     setup({ el, app, props, plugin }) {
         return createApp({ render: () => h(app, props) })
             .use(plugin)
